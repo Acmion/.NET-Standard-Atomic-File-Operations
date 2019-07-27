@@ -110,7 +110,7 @@ In contrast to the read operation, the clean operation rolls back the file syste
 so that only the target file or no files at all exist. In other words, the file 
 system is cleaned to a valid state without temp or state files.
 
-**Procedure steps:**
+**Procedure steps:**  
 If no files exist => State OK, end clean  
 Else if only F exist => State OK, end clean  
 Else if F and T exist => Delete T, restart clean  
