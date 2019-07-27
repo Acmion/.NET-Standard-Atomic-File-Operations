@@ -1,5 +1,5 @@
 # .NET-Core-Atomic-File-Operations
-This library provides some .NET Core atomic file operations.
+This library provides some .NET Standard atomic file operations.
 
 When dealing with writing data to a disk several problems exist.
 The worst problems are caused by random power outages or random crashes, 
