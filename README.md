@@ -11,7 +11,7 @@ a standard file system. Thus, we settle for a procedure where the data can
 always be recalled to a valid state, which mimicks atomicity.
 
 Note: There are several database softwares, which are ACID compliant and thus
-fulfilling the atomicity criteria. Sometimes these can be an overkill or not 
+fulfill the atomicity criteria. However, sometimes these can be an overkill or not 
 even implementable in all scenarios. 
 
 
