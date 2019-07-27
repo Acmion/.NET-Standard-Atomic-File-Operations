@@ -114,6 +114,6 @@ system is cleaned to a valid state without temp or state files.
 If no files exist => State OK, end clean  
 Else if only F exist => State OK, end clean  
 Else if F and T exist => Delete T, restart clean  
-Else if only T exists => Rename T to F, restart clean
+Else if only T exists => Rename T to F, restart clean  
 Else if only S exists => Delete S, restart clean  
 Else if S and T exist => Delete T, restart clean  
