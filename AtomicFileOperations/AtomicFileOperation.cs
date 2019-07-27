@@ -21,7 +21,7 @@ namespace AtomicFileOperations
             a standard file system. Thus, we settle for a procedure where the data can
             always be recalled to a valid state, which mimicks atomicity.
 
-            All specified operations in this document can fail during or after the execution
+            All specified operations in this library can fail during or after the execution
             call, but a valid file state should always be recallable. These steps do not explicitly
             note that the state of the file system is always cleaned before a write process.
 
@@ -30,9 +30,6 @@ namespace AtomicFileOperations
 
         private static string TempFileExtension { get; } = ".tmp";
         private static string StateFileExtension { get; } = ".stt";
-
-        
-
 
         private static void VerifyFilePath(string filePath)
         {
