@@ -1,4 +1,4 @@
-# .NET-Core-Atomic-File-Operations
+# .NET-Standard-Atomic-File-Operations
 This library provides some .NET Standard atomic file operations.
 
 When dealing with writing data to a disk several problems exist.
