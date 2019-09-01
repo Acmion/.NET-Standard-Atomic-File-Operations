@@ -10,7 +10,7 @@ made at all. This is called atomicity, but is not completely achievable with
 a standard file system. Thus, we settle for a procedure where the data can
 always be recalled to a valid state, which mimicks atomicity.
 
-Note: There are several database softwares, which are ACID compliant and thus
+Note: There are database softwares, which are ACID compliant and thus
 fulfill the atomicity criteria. However, sometimes these can be an overkill or not 
 even implementable in all scenarios. 
 
@@ -36,18 +36,19 @@ AtomicFileOperation.WriteAllText("C:/temp/test.txt", "Hello World!");
 var contents = AtomicFileOperation.ReadAllText("C:/temp/test.txt");
 ```
 
-## Definitions
+## The Algorithms
+### Definitions
 F = File that the operation is performed on, aka target file, exists.  
 S = State file exists.  
 T = Temp file exists.  
 (V) = Denotes the valid file.  
 
-## Write Operation Procedure
+### Write Operation Procedure
 All specified operations in this library can fail during or after the execution
 call, but a valid file state should always be recallable. These steps do not explicitly
 note that the state of the file system is always cleaned before a write process.
 
-### If Target File Exists At Start
+#### If Target File Exists At Start
 **Procedure steps**
 
 | Step | Description                                      |
@@ -66,7 +67,7 @@ note that the state of the file system is always cleaned before a write process.
 | E3   |             | T (V)          |
 | E4   | F (V)       |                |
 
-### If Target File Does Not Exists At Start
+#### If Target File Does Not Exists At Start
 **Procedure steps**
 
 | Step | Description                                                                |
@@ -85,7 +86,7 @@ note that the state of the file system is always cleaned before a write process.
 | N3   |             |            | T (V)          |
 | N4   | F (V)       |            |                |
 
-## Read Operation Procedure
+### Read Operation Procedure
 The read operation does not change the state of the file system in any regard.
 This means that, according to the write procedures above, the actual file that
 is read is not necessarily the target file, but could be the temporary file 
@@ -105,7 +106,7 @@ then AtomicFileOperation.WriteAllText("C:/test.txt", "Hello") is called, but a
 power outage kills the write process between N1 and N2 and thus we only have the
 file S. In other words, no valid file has ever been saved and an error is thrown.
 
-## Clean Operation Procedure
+### Clean Operation Procedure
 In contrast to the read operation, the clean operation rolls back the file system
 so that only the target file or no files at all exist. In other words, the file 
 system is cleaned to a valid state without temp or state files.
